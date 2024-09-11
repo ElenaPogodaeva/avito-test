@@ -1,0 +1,51 @@
+@import '../../App.variables.scss';
+
+.card {
+  width: calc(33.3% - 30px);
+  min-width: 200px;
+  overflow: hidden;
+  transition: .3s;
+  color: $black;
+  margin-bottom: 28px;
+  cursor: pointer;
+}
+
+.advertImg {
+  display: block;
+  width: 100%;
+  height: 250px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.advertContent {
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+.advertTitle {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.advertPrice {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+@media(max-width: 992px) {
+  .card {
+    width: calc(50% - 23px);
+  }
+}
+@media(max-width: 576px) {
+  .card {
+    width: 100%;
+  }
+}
