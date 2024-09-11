@@ -1,0 +1,16 @@
+@import '../../App.variables.scss';
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.mainWrapper {
+  flex: 1 1 auto;
+  max-width: $main-width;
+  margin: 0 auto;
+  padding: 0px 15px;
+}
+.main {
+  display: flex;
+}

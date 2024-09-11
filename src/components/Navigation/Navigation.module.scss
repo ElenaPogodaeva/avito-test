@@ -1,0 +1,19 @@
+@import '../../App.variables.scss';
+
+.menuLink {
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  transition: color 0.3s ease 0s;
+  display: flex;
+  align-items: center;
+  color: rgba(0,0,0,.67);
+  font-size: 20px;
+  font-weight: 500;
+  height: 48px;
+  line-height: 48px;
+  padding:10px 20px;
+}
+
+.menuLink:hover {
+  background-color: rgba(0,0,0,.05);
+}
