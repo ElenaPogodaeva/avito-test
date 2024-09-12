@@ -46,7 +46,7 @@ export const getAdvertisements = (params: QueryParams) => {
   return createResponse(url, 'GET', { params });
 };
 
-export const getAdvertisementById = (id: number) => {
+export const getAdvertisementById = (id: string) => {
   const url = `${BASE_URL}/advertisements/${id}`;
   return createResponse(url, 'GET');
 };

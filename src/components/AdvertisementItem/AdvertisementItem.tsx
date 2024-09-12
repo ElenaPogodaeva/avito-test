@@ -11,7 +11,7 @@ export function AdvertisementItem({ advertisment }: AdvertisementItemProps) {
   const { id, name, description, price, imageUrl, views, likes } = advertisment;
 
   return (
-    <Link to={`/advertisments/${id}`} className={style.card} aria-label="Advertisment card">
+    <Link to={`/advertisements/${id}`} className={style.card} aria-label="Advertisment card">
       <img src={imageUrl || cardImg} className={style.advertImg} alt="Advertisment" />
       <div className={style.advertContent}>
         <h2 className={style.advertTitle}>{name}</h2>
