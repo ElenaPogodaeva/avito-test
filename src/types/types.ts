@@ -67,9 +67,11 @@ export type AdvertismentRequest = {
 };
 
 export type QueryParams = {
-  title?: string;
+  // _start: string;
+  // _limit: string;
   _page: string;
-  _limit: string;
+  _per_page: string;
+  name?: string;
 };
 
 export type Config = {
