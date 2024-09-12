@@ -9,6 +9,7 @@ import { setCurrentPage } from '../../redux/advertisementsSlice';
 import Modal from '../../components/Modal/Modal';
 import AdvertisementForm from '../../components/AdvertisementForm/AdvertisementForm';
 import addIcon from '../../assets/plus.svg';
+import { Loader } from '../../components/Loader/Loader';
 
 type FormValues = {
   name: string;
@@ -47,6 +48,9 @@ export function AdvertisementsPage() {
     await dispatch(addAdvertisement(AdvertisementsData));
     setIsModalOpen(false);
   };
+
+  if (isLoading) return <Loader />;
+  if (error) return <p>Error occured</p>;
 
   return (
     <div className="page">

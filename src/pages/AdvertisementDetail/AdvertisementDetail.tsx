@@ -7,6 +7,7 @@ import { editAdvertisement, fetchAdvertisement } from '../../redux/thunks';
 import cardImg from '../../assets/image.png';
 import Modal from '../../components/Modal/Modal';
 import AdvertisementForm from '../../components/AdvertisementForm/AdvertisementForm';
+import { Loader } from '../../components/Loader/Loader';
 
 type FormValues = {
   name: string;
@@ -41,7 +42,7 @@ export function AdvertisementDetail() {
     setIsModalOpen(false);
   };
 
-  if (isLoading) return <div>Loading</div>;
+  if (isLoading) return <Loader />;
   if (error) return <p>Error occured</p>;
 
   return (
