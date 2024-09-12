@@ -82,14 +82,14 @@ body {
   font-size: 36px;
   line-height: 56px;
   font-weight: 700;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 .button {
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
-  padding: 20px 50px;
+  padding: 15px 30px;
   color: $white;
   background: $red;
   border-radius: 4px;
@@ -105,15 +105,28 @@ body {
 .add-button {
   display: flex;
   align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   padding: 16px;
+}
+
+.input {
+  font-size: 16px;
+  line-height: 22px;
+  color: $black;
+  background: $light-gray;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 40px;
+  &::placeholder {
+    color: $font-gray;
+  }
 }
 
 .nav {
   flex: 0 0 20vw;
   background: #eee;
-  padding-top: 50px;
+  padding: 63px 20px 0;
 }
 
 .page {

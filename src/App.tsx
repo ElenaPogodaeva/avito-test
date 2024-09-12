@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import AdvertisementsPage from './pages/AdvertisementsPage/AdvertisementsPage';
-import AdvertisementDetail from './pages/ProductDetail/AdvertisementDetail';
+import AdvertisementDetail from './pages/AdvertisementDetail/AdvertisementDetail';
 
 function App() {
   return (

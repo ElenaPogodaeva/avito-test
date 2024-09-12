@@ -17,8 +17,7 @@ const initialState: advertisementState = {
 export const advertisementSlice = createSlice({
   name: 'advertisement',
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAdvertisement.pending, (state) => {
       state.isLoading = true;

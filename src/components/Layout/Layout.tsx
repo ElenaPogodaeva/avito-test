@@ -9,10 +9,12 @@ export function Layout() {
     <div className={style.wrapper}>
       <Header />
       <div className={style.mainWrapper}>
-        <main className={style.main}>
-          <Navigation />
-          <Outlet />
-        </main>
+        <div className="container">
+          <main className={style.main}>
+            <Navigation />
+            <Outlet />
+          </main>
+        </div>
       </div>
       <Footer />
     </div>
