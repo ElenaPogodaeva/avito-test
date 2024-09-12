@@ -1,24 +1,79 @@
+import { useEffect, useState } from 'react';
+import { SubmitHandler } from 'react-hook-form';
 import AdvertisementList from '../../components/AdvertisementList/AdvertisementList';
-import { productData } from '../../mocks/mock';
 import style from './AdvertisementsPage.module.scss';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { addAdvertisement, fetchAdvertisements } from '../../redux/thunks';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import { setCurrentPage } from '../../redux/advertisementsSlice';
+import Modal from '../../components/Modal/Modal';
+import AdvertisementForm from '../../components/AdvertisementForm/AdvertisementForm';
+import addIcon from '../../assets/plus.svg';
+
+type FormValues = {
+  name: string;
+  description?: string;
+  price: number;
+  imageUrl?: string;
+};
 
 export function AdvertisementsPage() {
+  const { advertisements, searchValue, currentPage, resultsPerPage, hasMore, isLoading, error } =
+    useAppSelector((state) => state.advertisements);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAdvertisements({ searchValue, resultsPerPage, currentPage }));
+  }, [searchValue, resultsPerPage, currentPage]);
+
+  const handleLoadMore = () => {
+    dispatch(setCurrentPage());
+  };
+
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    const AdvertisementsData = {
+      name: data.name,
+      description: data.description,
+      price: data.price,
+      imageUrl: data.imageUrl,
+      createdAt: new Date().toISOString(),
+      views: 0,
+      likes: 0,
+    };
+
+    await dispatch(addAdvertisement(AdvertisementsData));
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="page">
       <section className="section">
-        <h2 className="section-title">Объявления</h2>
-        <input type="text" className={style.searchInput} placeholder="Search by title" />
-        <select name="choice" className={style.searchInput}>
-          <option value="first">First Value</option>
-          <option value="second" selected>
-            Second Value
-          </option>
-          <option value="third">Third Value</option>
-        </select>
-        <AdvertisementList advertisments={productData} />
-        <button type="button" className={`button ${style.loadBtn}`}>
-          Show more
-        </button>
+        <div className={style.header}>
+          <h2 className="section-title">Объявления</h2>
+          <button
+            type="button"
+            className="button add-button"
+            onClick={() => setIsModalOpen(true)}
+            aria-label="Добавить объявление"
+          >
+            <img src={addIcon} alt="Add" />
+          </button>
+        </div>
+        <SearchBar />
+        <AdvertisementList advertisments={advertisements} />
+        {hasMore && (
+          <button type="button" className={`button ${style.loadBtn}`} onClick={handleLoadMore}>
+            {isLoading ? 'Загрузка...' : 'Загрузить ещё'}
+          </button>
+        )}
+        {isModalOpen && (
+          <Modal>
+            <AdvertisementForm onSubmit={onSubmit} onCancel={() => setIsModalOpen(false)} />
+          </Modal>
+        )}
       </section>
     </div>
   );
