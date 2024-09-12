@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Advertisment } from '../types/types';
-import { fetchAdvertisements } from './thunks';
+import { editAdvertisement, fetchAdvertisements } from './thunks';
 import { LIMIT } from '../config/constants';
 
 export type advertisementsState = {
@@ -67,6 +67,14 @@ export const advertisementsSlice = createSlice({
       state.isLoading = false;
       state.error = 'Error occured';
       state.advertisements = [];
+    });
+    builder.addCase(editAdvertisement.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.error = '';
+
+      const { id } = action.payload;
+      const advertIndex = state.advertisements.findIndex((item) => item.id === id);
+      state.advertisements[advertIndex] = action.payload;
     });
   },
 });

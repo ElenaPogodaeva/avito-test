@@ -55,7 +55,7 @@ type Image = {
   name: string;
 };
 
-export type AdvertismentRequest = {
+export type CreateAdvertisment = {
   name: string;
   /* Описание. */
   description?: string;
@@ -70,6 +70,18 @@ export type AdvertismentRequest = {
   /* Ссылка на изображение. */
   imageUrl?: string;
 };
+
+export type UpdateAdvertisment = {
+  name: string;
+  /* Описание. */
+  description?: string;
+  /* Цена. */
+  price: number;
+  /* Ссылка на изображение. */
+  imageUrl?: string;
+};
+
+export type AdvertismentRequest = CreateAdvertisment | UpdateAdvertisment;
 
 export type QueryParams = {
   // _start: string;

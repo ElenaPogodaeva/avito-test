@@ -1,7 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-import { AdvertismentRequest, QueryParams } from '../types/types';
-import { createAdvertisement, getAdvertisementById, getAdvertisements } from '../api/api';
+import {
+  CreateAdvertisment,
+  QueryParams,
+  UpdateAdvertisment,
+} from '../types/types';
+import {
+  createAdvertisement,
+  getAdvertisementById,
+  getAdvertisements,
+  updateAdvertisement,
+} from '../api/api';
 
 type SearchOptions = {
   searchValue: string;
@@ -46,7 +54,7 @@ export const fetchAdvertisements = createAsyncThunk(
 
 export const addAdvertisement = createAsyncThunk(
   'advertisements/addAdvertisement',
-  async (data: AdvertismentRequest, { rejectWithValue }) => {
+  async (data: CreateAdvertisment, { rejectWithValue }) => {
     try {
       const response = await createAdvertisement(data);
       return response;
@@ -62,6 +70,19 @@ export const fetchAdvertisement = createAsyncThunk(
     try {
       const advertisement = await getAdvertisementById(id);
       return advertisement;
+    } catch (err) {
+      return rejectWithValue((err as Error).message);
+    }
+  }
+);
+
+export const editAdvertisement = createAsyncThunk(
+  'advertisements/editAdvertisement',
+  async (data: { id: string; advertisement: UpdateAdvertisment }, { rejectWithValue }) => {
+    try {
+      const { id, advertisement } = data;
+      const response = await updateAdvertisement(id, advertisement);
+      return response;
     } catch (err) {
       return rejectWithValue((err as Error).message);
     }

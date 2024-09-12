@@ -1,4 +1,10 @@
-import { AdvertismentRequest, Config, QueryParams } from '../types/types';
+import {
+  AdvertismentRequest,
+  Config,
+  CreateAdvertisment,
+  QueryParams,
+  UpdateAdvertisment,
+} from '../types/types';
 import { BASE_URL } from '../config/constants';
 
 async function createResponse(
@@ -51,12 +57,12 @@ export const getAdvertisementById = (id: string) => {
   return createResponse(url, 'GET');
 };
 
-export const createAdvertisement = (advertisement: AdvertismentRequest) => {
+export const createAdvertisement = (advertisement: CreateAdvertisment) => {
   const url = `${BASE_URL}/advertisements`;
   return createResponse(url, 'POST', { body: advertisement });
 };
 
-export const updateAdvertisement = (id: string, advertisement: AdvertismentRequest) => {
+export const updateAdvertisement = (id: string, advertisement: UpdateAdvertisment) => {
   const url = `${BASE_URL}/advertisements/${id}`;
-  return createResponse(url, 'PUT', { body: advertisement });
+  return createResponse(url, 'PATCH', { body: advertisement });
 };

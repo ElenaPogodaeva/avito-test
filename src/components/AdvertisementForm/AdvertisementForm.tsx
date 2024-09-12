@@ -16,8 +16,10 @@ type AdvertisementFormProps = {
   onSubmit: (data: AdvertisementFormValues) => void;
   onCancel: () => void;
   values?: {
-    title: string;
-    description: string;
+    name: string;
+    description?: string;
+    price: number;
+    imageUrl?: string;
   };
 };
 
@@ -27,7 +29,12 @@ function AdvertisementForm({ onSubmit, onCancel, values }: AdvertisementFormProp
     handleSubmit,
     formState: { errors },
   } = useForm<AdvertisementFormValues>({
-    // defaultValues: { title: values?.title, description: values?.description },
+    defaultValues: {
+      name: values?.name,
+      description: values?.description,
+      price: values?.price,
+      imageUrl: values?.imageUrl,
+    },
   });
 
   return (
