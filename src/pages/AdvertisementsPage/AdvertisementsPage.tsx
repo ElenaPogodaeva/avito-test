@@ -10,13 +10,7 @@ import Modal from '../../components/Modal/Modal';
 import AdvertisementForm from '../../components/AdvertisementForm/AdvertisementForm';
 import addIcon from '../../assets/plus.svg';
 import { Loader } from '../../components/Loader/Loader';
-
-type FormValues = {
-  name: string;
-  description?: string;
-  price: number;
-  imageUrl?: string;
-};
+import { FormValues } from '../../types/types';
 
 export function AdvertisementsPage() {
   const { advertisements, searchValue, currentPage, resultsPerPage, hasMore, isLoading, error } =

@@ -70,7 +70,7 @@ function AdvertisementForm({ onSubmit, onCancel, values }: AdvertisementFormProp
         <button type="submit" className="button">
           Добавить
         </button>
-        <button type="submit" className="button" onClick={onCancel}>
+        <button type="button" className="button" onClick={onCancel}>
           Отмена
         </button>
       </div>

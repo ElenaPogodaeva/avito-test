@@ -37,6 +37,24 @@
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.advertInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.advertIcon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media(max-width: 992px) {

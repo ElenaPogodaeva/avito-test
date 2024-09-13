@@ -8,13 +8,7 @@ import cardImg from '../../assets/image.png';
 import Modal from '../../components/Modal/Modal';
 import AdvertisementForm from '../../components/AdvertisementForm/AdvertisementForm';
 import { Loader } from '../../components/Loader/Loader';
-
-type FormValues = {
-  name: string;
-  description?: string;
-  price: number;
-  imageUrl?: string;
-};
+import { FormValues } from '../../types/types';
 
 export function AdvertisementDetail() {
   const id = useParams().id as string;

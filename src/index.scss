@@ -125,35 +125,13 @@ body {
 
 .nav {
   flex: 0 0 20vw;
-  background: #eee;
   padding: 63px 20px 0;
+  background: $light-gray;
 }
 
 .page {
   flex: 1 1 auto;
   padding: 0 15px;
+  background: $white;
 }
 
-// .menu-link {
-//   font-size: 14px;
-//   line-height: 20px;
-//   font-weight: 600;
-  
-//   transition: .3s;
-//   cursor: pointer;
-
-//   &:hover, &:active {
-//     color:  $link-gray;
-//   }
-//   &:hover {
-//     text-decoration: underline;
-//   }
-// }
-
-// @media(max-width: 768px) {
-//   .menu-list {
-//     flex-direction: column;
-//     align-items: flex-start;
-//     gap: 30px;
-//   }
-// }

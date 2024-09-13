@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { Advertisment } from '../types/types';
 import { fetchAdvertisement } from './thunks';
 

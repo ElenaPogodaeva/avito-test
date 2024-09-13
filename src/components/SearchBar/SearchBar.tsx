@@ -1,11 +1,10 @@
 import React from 'react';
 import { resetPage, setSearchOptions } from '../../redux/advertisementsSlice';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-
 import style from './SearchBar.module.scss';
 
 export function SearchBar() {
-  const { resultsPerPage } = useAppSelector((state) => state.advertisements);
+  const { resultsPerPage, searchValue } = useAppSelector((state) => state.advertisements);
   const dispatch = useAppDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
@@ -24,9 +23,7 @@ export function SearchBar() {
           value={resultsPerPage}
           onChange={handleChange}
         >
-          <option value="10" selected>
-            10
-          </option>
+          <option value="10">10</option>
           <option value="20">20</option>
           <option value="30">30</option>
         </select>
@@ -35,6 +32,7 @@ export function SearchBar() {
         type="text"
         className={`input ${style.searchInput}`}
         name="searchValue"
+        value={searchValue}
         onChange={handleChange}
         placeholder="Поиск по названию"
       />

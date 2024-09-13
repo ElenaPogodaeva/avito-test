@@ -1,9 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import {
-  CreateAdvertisment,
-  QueryParams,
-  UpdateAdvertisment,
-} from '../types/types';
+import { CreateAdvertisment, QueryParams, UpdateAdvertisment } from '../types/types';
 import {
   createAdvertisement,
   getAdvertisementById,
@@ -21,16 +17,6 @@ export const fetchAdvertisements = createAsyncThunk(
   'advertisements/fetchAdvertisements',
   async (searchOptions: SearchOptions, { rejectWithValue }) => {
     const { searchValue, resultsPerPage, currentPage } = searchOptions;
-
-    // const params: QueryParams = {
-    //   _start: (currentPage * resultsPerPage).toString(),
-    //   _limit: resultsPerPage.toString(),
-    // };
-
-    // const params: QueryParams = {
-    //   _start: (currentPage * resultsPerPage).toString(),
-    //   _limit: resultsPerPage.toString(),
-    // };
 
     const params: QueryParams = {
       _page: currentPage.toString(),

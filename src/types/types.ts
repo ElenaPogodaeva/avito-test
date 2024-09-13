@@ -98,3 +98,10 @@ export type Config = {
   };
   body?: string;
 };
+
+export type FormValues = {
+  name: string;
+  description?: string;
+  price: number;
+  imageUrl?: string;
+};
