@@ -1,0 +1,14 @@
+@import '@/app/styles/App.variables.scss';
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.mainWrapper {
+  flex: 1 1 auto;
+  background: $light-gray;
+}
+.main {
+  display: flex;
+}
