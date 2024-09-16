@@ -1,4 +1,4 @@
-export { AdvertisementList } from './ui/AdvertisementList/AdvertisementList';
+export { AdvertisementList } from './ui/AdvertisementList';
 
 export {
   getAdvertisements,

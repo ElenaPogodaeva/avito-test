@@ -1,6 +1,5 @@
 import { Advertisment } from '@/shared/api';
-import { AdvertisementItem } from '../AdvertisementItem/AdvertisementItem';
-import style from './AdvertisementList.module.scss';
+import { AdvertisementItem } from './AdvertisementItem/AdvertisementItem';
 
 type AdvertisementListProps = {
   advertisments: Advertisment[];
@@ -8,7 +7,7 @@ type AdvertisementListProps = {
 
 export function AdvertisementList({ advertisments }: AdvertisementListProps) {
   return (
-    <div className={style.advertisments}>
+    <div className="cards">
       {Boolean(advertisments.length) &&
         advertisments.map((advertisment) => (
           <AdvertisementItem key={advertisment.id} advertisment={advertisment} />
