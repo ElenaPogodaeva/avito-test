@@ -1,0 +1,64 @@
+@import '@/app/styles/App.variables.scss';
+
+.card {
+  width: calc(33.3% - 30px);
+  min-width: 200px;
+  overflow: hidden;
+  transition: .3s;
+  color: $black;
+  margin-bottom: 28px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .12);
+  overflow: hidden;
+  padding: 20px;
+}
+
+// .orderHeader {
+//   background-color: #eee;
+// }
+
+// .orderHeaderWrap {
+//   padding: 20px 20px 10px;
+// }
+
+.orderContent {
+  margin-top: 20px;
+}
+
+.orderTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.orderRow {
+  margin-bottom: 20px;
+}
+
+.orderLabel {
+  font-weight: 600;
+}
+
+.orderStatus {
+  align-items: center;
+  border-radius: 8px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.29;
+  padding: 3px 8px;
+  background-color: rgba(0, 26, 52, 0.4);
+}
+
+@media(max-width: 992px) {
+  .card {
+    width: calc(50% - 23px);
+  }
+}
+@media(max-width: 576px) {
+  .card {
+    width: 100%;
+  }
+}
