@@ -1,0 +1,12 @@
+@import '@/app/styles/App.variables.scss';
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.loadBtn {
+  display: block;
+  margin: 0 auto;
+}
