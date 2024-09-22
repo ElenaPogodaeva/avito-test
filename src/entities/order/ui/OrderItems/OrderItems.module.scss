@@ -1,0 +1,21 @@
+.orderItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  &:first-child {
+    margin-top: 15px;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.orderLink {
+  color: #444B58;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    text-decoration: underline;
+  }
+}

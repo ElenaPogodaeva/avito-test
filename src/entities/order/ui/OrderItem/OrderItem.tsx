@@ -1,6 +1,8 @@
 import { Order } from '@/shared/api';
 import { enumToString } from '@/shared/lib';
+import { useState } from 'react';
 import style from './OrderItem.module.scss';
+import { OrderItems } from '../OrderItems/OrderItems';
 
 type OrderItemProps = {
   order: Order;
@@ -8,6 +10,8 @@ type OrderItemProps = {
 
 export function OrderItem({ order }: OrderItemProps) {
   const { id, status, createdAt, items, deliveryWay, total } = order;
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className={style.card}>
@@ -32,6 +36,14 @@ export function OrderItem({ order }: OrderItemProps) {
           <span className={style.orderLabel}>Сумма: </span> {total}
         </p>
       </div>
+      <button
+        type="button"
+        className={`button ${style.orderBtn}`}
+        onClick={() => setIsOpen((prev) => !prev)}
+      >
+        {isOpen ? 'Скрыть товары' : 'Показать товары'}
+      </button>
+      {isOpen && <OrderItems items={items} />}
     </div>
   );
 }

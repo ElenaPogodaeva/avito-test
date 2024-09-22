@@ -9,4 +9,5 @@ export type {
   QueryParams,
   FormValues,
   Order,
+  OrderItemType,
 } from './types';

@@ -27,7 +27,7 @@ export const enum OrderStatus {
   Refund = 6,
 }
 
-type OrderItem = Advertisment & { count: number };
+export type OrderItemType = Advertisment & { count: number };
 
 export type Order = {
   /* Уникальный идентификатор. */
@@ -39,7 +39,7 @@ export type Order = {
   /* Дата и время завершения. */
   finishedAt?: string;
   /* Товары в заказе. */
-  items: Array<OrderItem>;
+  items: Array<OrderItemType>;
   /* Способ доставки(Почта, СДЭК...) */
   deliveryWay: string;
   /* Сумма заказа */
